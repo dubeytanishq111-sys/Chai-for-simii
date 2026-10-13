@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanishq & Simi Villa ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#17142b;color:white;font-family:Arial;text-align:center}
+header{padding:18px;background:#282044}
+h1{margin:5px;color:#ffb5d0}
+#scene{margin:14px auto;max-width:600px;min-height:360px;padding:18px;border-radius:22px;background:linear-gradient(#edb4cc,#714a85 65%,#29233d);position:relative;overflow:hidden}
+#villa{font-size:80px;margin:20px}
+#characters{font-size:65px;margin:18px}
+#dialogue{background:#fff;color:#38233f;padding:16px;border-radius:18px;font-size:18px;font-weight:bold;min-height:72px}
+button{background:#ff83b5;color:#35152a;border:0;border-radius:14px;padding:13px 16px;margin:5px;font-size:16px;font-weight:bold}
+button:active{transform:scale(.96)}
+#room{font-size:20px;font-weight:bold}
+small{color:#ffe0ef}
+</style>
+</head>
+<body>
+<header>
+<h1>🏡 Our Luxury Villa ❤️</h1>
+<div>Tanishq 👦 & Simi 👧</div>
+</header>
+
+<div id="scene">
+<div id="room">VILLA GATE</div>
+<div id="villa">🏡🌴</div>
+<div id="characters">👦🏻</div>
+<div id="dialogue">Welcome home, Tanishq! ❤️ Villa ke andar jao.</div>
+</div>
+
+<div id="buttons">
+<button onclick="enter()">🚪 Enter Villa</button>
+</div>
+<p><small>Complete Simi's missions to make her happy! ☕</small></p>
+
+<script>
+let step=0;
+function show(room,emoji,msg,buttons){
+ document.getElementById('room').textContent=room;
+ document.getElementById('characters').textContent=emoji;
+ document.getElementById('dialogue').textContent=msg;
+ document.getElementById('villa').textContent=room.includes('Kitchen')?'🍳☕':room.includes('Bedroom')?'🛏️🌸':room.includes('Office')?'👜🧹':'🛋️🌴';
+ document.getElementById('buttons').innerHTML=buttons;
+}
+function enter(){
+step=1;
+show('LUXURY LIVING ROOM','👦🏻🛋️','Simi 😡: TANISHQ! KHA HO? CHAY KAB MILEGI? WARNA GHAR SE NIKAL DUNGI!', '<button onclick="tea()">☕ Chai banata hoon!</button><button onclick="late()">😅 2 minute!</button>');
+}
+function late(){
+show('LIVING ROOM','👦🏻😅','Simi 😡: TANISHQ! Abhi tak chai nahi bani?! Jaldi jao!', '<button onclick="tea()">🏃 Kitchen jao</button>');
+}
+function tea(){
+show('Kitchen','👦🏻🍳','Chai ban rahi hai... ☕ Simi intezaar kar rahi hai!', '<button onclick="giveTea()">☕ Chai lekar jao</button>');
+}
+function giveTea(){
+show('SIMI BEDROOM','👦🏻☕👧🏻','Simi: Hmm! 😒 Ab breakfast bhi ready rehna chahiye, nahi toh tum gaye!', '<button onclick="breakfast()">🍳 Breakfast banao</button>');
+}
+function breakfast(){
+show('Kitchen','👦🏻🍳','Madam ke liye breakfast: 🍞🥚☕ Jaldi ready karo!', '<button onclick="office()">✅ Breakfast ready</button>');
+}
+function office(){
+show('VILLA ENTRANCE','👧🏻👜👦🏻🧹','Simi office se aayi! Simi: TANISHQ! Geela floor kyun hai?! 😡', '<button onclick="slip()">😱 Simi fisal gayi!</button><button onclick="safe()">⚠️ Warning sign lagao</button>');
+}
+function slip(){
+show('LIVING ROOM','👧🏻😵👦🏻','Simi fisal kar gir gayi! Tanishq, jaldi madad karo! 😟', '<button onclick="help()">❤️ Simi ki madad karo</button>');
+}
+function safe(){
+show('LIVING ROOM','👦🏻⚠️👧🏻','Tanishq ne warning sign laga diya. Simi ab sambhal kar chal rahi hai! ❤️', '<button onclick="help()">❤️ Simi se baat karo</button>');
+}
+function help(){
+show('LIVING ROOM','👦🏻❤️👧🏻','Tanishq: Simi, tum theek ho? Simi: Haan, bas geela floor sukha do! 😊', '<button onclick="office()">🔁 Play again</button>');
+}
+</script>
+</body>
+</html>
